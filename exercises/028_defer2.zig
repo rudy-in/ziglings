@@ -15,10 +15,10 @@ pub fn main() void {
 // This function is _supposed_ to print an animal name in parentheses
 // like "(Goat) ", but we somehow need to print the end parenthesis
 // even though this function can return in four different places!
-fn printAnimal(animal: u8) void {
+fn printAnimal(animal: u64) void {
     std.debug.print("(", .{});
 
-    std.debug.print(") ", .{}); // <---- how?!
+    defer std.debug.print(") ", .{}); // <---- how?!
 
     if (animal == 'g') {
         std.debug.print("Goat", .{});
